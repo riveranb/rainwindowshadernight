@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GridsMaterial
-  m_Shader: {fileID: 4800000, guid: d4f7fb1b6b5761f489589e1902c7f0b6, type: 3}
+  m_Name: 02_DropsMaterial
+  m_Shader: {fileID: 4800000, guid: e8e590cb05147f849978c31b269eca8a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
