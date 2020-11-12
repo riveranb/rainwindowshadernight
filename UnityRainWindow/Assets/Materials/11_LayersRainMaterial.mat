@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 10_FogblurMaterial
+  m_Name: 11_LayersRainMaterial
   m_Shader: {fileID: 4800000, guid: 09109d1ca4414db45b78e1c35f675b1b, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
