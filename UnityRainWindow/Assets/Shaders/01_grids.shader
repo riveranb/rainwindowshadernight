@@ -3,6 +3,7 @@
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _GridSize("Grid-Size", float) = 1
     }
     SubShader
     {
@@ -34,22 +35,32 @@
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
+            float _GridSize;
 
             v2f vert (appdata v)
             {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-                UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
             }
 
-            fixed4 frag (v2f i) : SV_Target
+            fixed4 frag(v2f i) : SV_Target
             {
-                // sample the texture
-                fixed4 col = tex2D(_MainTex, i.uv);
-                // apply fog
-                UNITY_APPLY_FOG(i.fogCoord, col);
+                fixed4 col = 0;
+                fixed2 grid_aspect = fixed2(3, 1);
+                // i.uv: 0 ~ 1 => uv: 0 ~ _GridSize * grid_aspect
+                fixed2 uv = i.uv * _GridSize * grid_aspect;
+                // get fractional (-0.5 ~ 0.5)
+                fixed2 grided = frac(uv) - 0.5;
+                
+                col.rg = grided;
+                // make grid line color at the edge of each grid
+                if (grided.x > 0.48 || grided.y > 0.49)
+                {
+                    col = fixed4(1, 0, 0, 1);
+                }
+
                 return col;
             }
             ENDCG
