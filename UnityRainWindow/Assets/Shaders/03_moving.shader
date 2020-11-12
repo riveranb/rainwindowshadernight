@@ -1,4 +1,4 @@
-﻿Shader "Unlit/02_drops"
+﻿Shader "Unlit/03_moving"
 {
     Properties
     {
@@ -52,12 +52,15 @@
                 fixed2 grid_aspect = fixed2(2, 1);
                 // i.uv: 0 ~ 1 => uv: 0 ~ _GridSize * grid_aspect
                 fixed2 uv = i.uv * _GridSize * grid_aspect;
+                // animating the grid downward, so drops are falling
+                uv.y += t * 0.25;
                 // get fractional (-0.5 ~ 0.5)
                 fixed2 gridd = frac(uv) - 0.5;
 
                 fixed2 move = 0;
-                // factor by 0.45 to avoid moving out of grids
-                move.y = -sin(t) * 0.45;
+                // a more complex sin wave for animating drops
+                // goes downward fastly and upward slowly
+                move.y = -sin(t + sin(t + sin(t) * 0.5)) * 0.45;
                 // animating drop position by (gridd - move)
                 // gridd is stretched by grid_aspect, so normalized back
                 fixed2 drop_pos = (gridd - move) / grid_aspect;
