@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 08_FogTrialMaterial
+  m_Name: 09_DistortMaterial
   m_Shader: {fileID: 4800000, guid: 2e2b37d77d67d3746b626c423d576584, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
