@@ -1,4 +1,4 @@
-﻿Shader "Unlit/13_screenblur"
+﻿Shader "Unlit/14_rainmipmap"
 {
     Properties
     {
@@ -136,17 +136,20 @@
                 rain += RainLayer(i.uv * 1.37 + 7.51, t);
                 rain += RainLayer(i.uv * 1.89 - 11.1, t * 2);
 
-                float mipmap = _Blur * 7; // mipmap level (0, 1, 2, 3, 4, 5, 6, 7)
+                // fwidth(): sum of the absolute value of derivatives in x and y
+                float mipfade = fwidth(i.uv);
+                // when far away, mipfade ~> 0, when nearby, mipfade ~> 1
+                mipfade = 1 - saturate(mipfade * 60);
+                float blur = _Blur * 7; // blurriness mimics mipmap level (0, 1, 2, 3, 4, 5, 6, 7)
                 // clear inside of fog-trail, blurry outside of fog-trail
-                mipmap *= 1 - rain.z;
-                //col = tex2Dlod(_MainTex, float4(i.uv + rain.xy * _Distort, 0, mipmap));
+                blur *= 1 - rain.z * mipfade; // rain-drops effect multiplied by mipfade
 
                 // input clip-space UV needs to be normalized by w-component
                 float2 grabuv = i.grabuv.xy / i.grabuv.w;
-                grabuv += rain.xy * _Distort; // adds drop effect 
+                grabuv += rain.xy * _Distort * mipfade; // adds drop effect (multiplied by mipfade)
 
                 float a = rand21(i.uv) * 6.2831; // initial random start-rotation for each pixel sampling
-                float blur = mipmap * 0.011;
+                blur *= 0.011;
                 const float nsamples = 32;
                 // iterate nsamples times to sample pixels nearby, and then finally average it
                 // because render texture (_GrabTex) has no mipmap
