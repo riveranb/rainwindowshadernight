@@ -2,13 +2,13 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Mm]emoryCaptures/
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -57,4 +57,52 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+
+
+# Egret engine .gitignore
+bin-debug/
+node_modules/
+.idea/
+tools/node_modules
+src/egret/**/*.js
+src/egret/**/**/*.js
+src/extension/**/*.js
+src/extension/**/**/*.js
+temp/
+libs/
+egret.d.ts
+
+tools/nodejs/buildTS.local
+*.local
+*.map
+.idea
+tools/lib/exml/src/code/skins/Panel.js
+tools/lib/exml/src/code/skins/Panel.ts
+tools/lib/exml/src/code/components/Button.js
+tools/lib/exml/src/egret.d.ts
+
+*.swp
+*~
+.DS_Store
+.[Tt]humb
+*.config
+obj/
+*.user
+*.suo
+*.sln
+*.csproj
+*.ide/
+npm-debug.log
+src/tsc_config_temp.txt
+bin
+tsconfig.json
+index.html
+src/tests
+
+.wing/settings.json
+built
+tests**
+target**
+test-script.js
+tsconfig.debug.json
 
