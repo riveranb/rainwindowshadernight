@@ -60,6 +60,8 @@ crashlytics-build.properties
 
 
 # Egret engine .gitignore
+.vscode/
+.wing/
 bin-debug/
 node_modules/
 .idea/
@@ -81,28 +83,4 @@ tools/lib/exml/src/code/skins/Panel.ts
 tools/lib/exml/src/code/components/Button.js
 tools/lib/exml/src/egret.d.ts
 
-*.swp
-*~
-.DS_Store
-.[Tt]humb
-*.config
-obj/
-*.user
-*.suo
-*.sln
-*.csproj
-*.ide/
-npm-debug.log
-src/tsc_config_temp.txt
-bin
-tsconfig.json
-index.html
-src/tests
-
-.wing/settings.json
-built
-tests**
-target**
-test-script.js
-tsconfig.debug.json
 
