@@ -14,3 +14,5 @@ Unity project version: 14 materials/shaders for different phases and showcases
 
 ### EgretRainyFilter folder
 Egret project version: WebGL version shader code.
+
+![demo](https://github.com/riveranb/rainwindowshadernight/blob/main/Demo/webgl_demo.gif)
