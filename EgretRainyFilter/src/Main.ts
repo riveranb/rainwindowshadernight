@@ -137,6 +137,15 @@ class Main extends eui.UILayer
                 this.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
             },
             this);
+
+        let info = new egret.TextField();
+        info.y = 100;
+        info.width = stageW;
+        info.textAlign = egret.HorizontalAlign.CENTER;
+        info.text = "Drag mouse left button:\n" + 
+            "Horizontally to adjust dense/size of droplets\n" +
+            "Vertically to adjust humidity blur";
+        this.addChild(info);
     }
 
     /**

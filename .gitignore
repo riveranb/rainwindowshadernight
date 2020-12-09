@@ -63,6 +63,7 @@ crashlytics-build.properties
 .vscode/
 .wing/
 bin-debug/
+bin-release/
 node_modules/
 .idea/
 tools/node_modules
